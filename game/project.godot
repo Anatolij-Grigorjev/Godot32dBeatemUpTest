@@ -13,6 +13,13 @@ config_version=3
 config/name="LF2DynasteTEST"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="bg_walk"
+2d_physics/layer_2="below_jump"
+2d_physics/layer_3="char_walk"
+2d_physics/layer_4="char_jump"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
