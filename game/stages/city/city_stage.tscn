@@ -4,21 +4,25 @@
 [ext_resource path="res://characters/dennis/dennis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://stages/tileset.tres" type="TileSet" id=3]
 
-[node name="city_stage" type="Node2D" index="0"]
+[node name="city_stage" type="Node2D"]
 
-position = Vector2( -0.915863, -3.66345 )
+position = Vector2( 0, 50 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="parallax_ground" parent="." index="0" instance=ExtResource( 1 )]
 
 offset = Vector2( 400, 200 )
 transform = Transform2D( 1, 0, 0, 1, 400, 200 )
+scroll_ignore_camera_zoom = true
 
 [node name="dennis" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 192.331, 175.845 )
+position = Vector2( 197.763, 330.05 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="2"]
 
+position = Vector2( 0, 0.776031 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
@@ -36,6 +40,8 @@ collision_mask = 4
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -65536, 0, 0, -65524, 1, 0 )
-_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 

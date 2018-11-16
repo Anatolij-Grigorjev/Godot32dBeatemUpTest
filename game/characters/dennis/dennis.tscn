@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=1]
+[ext_resource path="res://characters/character_move.gd" type="Script" id=1]
+[ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -13,17 +14,18 @@ height = 45.0
 custom_solver_bias = 0.0
 extents = Vector2( 19, 5 )
 
-[node name="dennis" type="KinematicBody2D"]
+[node name="dennis" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 4
 collision_mask = 4
 collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="sprite" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 vframes = 6
 hframes = 10
 _sections_unfolded = [ "Animation", "Offset", "Region" ]
@@ -51,5 +53,14 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 0, 30 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="animator" type="AnimationPlayer" parent="." index="3"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
 
 
