@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/char_move.gd" type="Script" id=1]
+[ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 17.0371
+height = 40.2929
+
+[node name="dennis" type="KinematicBody2D"]
+
+position = Vector2( 400, 400 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+speed = 200
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+vframes = 6
+hframes = 10
+_sections_unfolded = [ "Animation", "Region" ]
+
+[node name="body" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.283875, -2.27103 )
+shape = SubResource( 1 )
+
+

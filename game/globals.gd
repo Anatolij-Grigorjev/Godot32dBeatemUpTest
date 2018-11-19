@@ -10,6 +10,7 @@ func z2y(z):
 
 
 func _ready():
+	print("Global functions y2z and z2y loaded...")
 	pass
 
 #func _process(delta):
