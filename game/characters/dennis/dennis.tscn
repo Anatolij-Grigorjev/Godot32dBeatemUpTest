@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://characters/char_move.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 17.0371
-height = 40.2929
+extents = Vector2( 17.463, 7.20914 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 15.6178
+height = 32.458
 
 [node name="dennis" type="KinematicBody2D"]
 
 position = Vector2( 400, 400 )
 input_pickable = false
-collision_layer = 4
-collision_mask = 4
+collision_layer = 1
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
@@ -27,9 +32,23 @@ vframes = 6
 hframes = 10
 _sections_unfolded = [ "Animation", "Region" ]
 
-[node name="body" type="CollisionShape2D" parent="." index="1"]
+[node name="feet" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.283875, -2.27103 )
+position = Vector2( -0.283905, 28.8138 )
 shape = SubResource( 1 )
+
+[node name="body" type="KinematicBody2D" parent="." index="2"]
+
+position = Vector2( -0.141968, 0.567749 )
+input_pickable = false
+collision_layer = 6
+collision_mask = 4
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "collision" ]
+
+[node name="collider" type="CollisionShape2D" parent="body" index="0"]
+
+position = Vector2( -0.993561, -3.9743 )
+shape = SubResource( 2 )
 
 
