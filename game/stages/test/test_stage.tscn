@@ -1,42 +1,91 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://stages/test/test_wall_block.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/dennis/dennis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stages/city/bg_ground_left.png" type="Texture" id=1]
+[ext_resource path="res://stages/city/bg_ground_right.png" type="Texture" id=2]
+[ext_resource path="res://stages/test/test_wall_block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://characters/dennis/dennis.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 75.6199, 65.7802 )
 
 [node name="root" type="Node2D" index="0"]
 
-[node name="block" parent="." index="0" instance=ExtResource( 1 )]
+position = Vector2( 10.0037, 272.902 )
 
-position = Vector2( 155, 344.929 )
-collision_layer = 5
-collision_mask = 7
+[node name="road" type="Sprite" parent="." index="0"]
 
-[node name="block2" parent="." index="1" instance=ExtResource( 1 )]
+position = Vector2( 398.548, 92.4344 )
+texture = ExtResource( 1 )
 
-position = Vector2( 400.597, 341.654 )
-collision_layer = 5
-collision_mask = 7
+[node name="road_up" type="Sprite" parent="." index="1"]
 
-[node name="block3" parent="." index="2" instance=ExtResource( 1 )]
+position = Vector2( 882.286, -172.741 )
+rotation = 1.5708
+scale = Vector2( 0.806754, 1.67003 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-position = Vector2( 526.671, 342.746 )
-collision_layer = 5
-collision_mask = 7
+[node name="block" parent="." index="2" instance=ExtResource( 3 )]
 
-[node name="block4" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( 63.2235, -13.6051 )
 
-position = Vector2( 651.107, 345.474 )
-collision_layer = 5
-collision_mask = 7
+[node name="block6" parent="." index="3" instance=ExtResource( 3 )]
 
-[node name="block5" parent="." index="4" instance=ExtResource( 1 )]
+position = Vector2( -58.8219, 50.0186 )
 
-position = Vector2( 282.71, 344.383 )
-collision_layer = 5
-collision_mask = 7
+[node name="block7" parent="." index="4" instance=ExtResource( 3 )]
 
-[node name="dennis" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( -58.8219, 111.642 )
 
-position = Vector2( 84.0363, 25.6777 )
+[node name="block8" parent="." index="5" instance=ExtResource( 3 )]
+
+position = Vector2( -55.2205, 172.464 )
+
+[node name="block2" parent="." index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 190.471, -15.2057 )
+
+[node name="block3" parent="." index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 317.718, -14.0052 )
+
+[node name="block4" parent="." index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 445.766, -12.0045 )
+
+[node name="block5" parent="." index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 574.614, -12.0045 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
+
+editor/display_folded = true
+position = Vector2( 667.048, 4.0015 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
+
+position = Vector2( 43.424, -59.9121 )
+scale = Vector2( 1.14705, 1.50472 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+
+position = Vector2( 42.4158, -88.288 )
+scale = Vector2( 1, 1.03701 )
+shape = SubResource( 1 )
+
+[node name="dennis" parent="." index="11" instance=ExtResource( 5 )]
+
+position = Vector2( 143.258, 8.87149 )
 
 
