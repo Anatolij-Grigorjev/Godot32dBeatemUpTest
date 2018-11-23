@@ -86,6 +86,8 @@ shape = SubResource( 1 )
 
 [node name="dennis" parent="." index="11" instance=ExtResource( 5 )]
 
-position = Vector2( 143.258, 8.87149 )
+position = Vector2( 145, 10 )
+PEAK_JUMP_HEIGHT = 250
+JUMP_STRENGTH = -200
 
 

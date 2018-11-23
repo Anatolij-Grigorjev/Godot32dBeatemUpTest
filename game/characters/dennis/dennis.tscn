@@ -13,12 +13,14 @@ height = 32.458
 
 position = Vector2( 400, 400 )
 input_pickable = false
-collision_layer = 1
+collision_layer = 5
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 speed = 200
+PEAK_JUMP_HEIGHT = 250
+JUMP_STRENGTH = -200
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
