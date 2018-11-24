@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64.13, 22.732 )
+
+[node name="vert_block" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 4
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="sprite" type="Sprite" parent="." index="0"]
+
+self_modulate = Color( 0.172568, 0.241326, 0.972656, 1 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="body" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1.52282, -31.0847 )
+scale = Vector2( 1, 1.3767 )
+shape = SubResource( 1 )
+
+
