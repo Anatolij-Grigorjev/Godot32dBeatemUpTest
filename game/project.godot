@@ -15,7 +15,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-G="*res://globals.gd"
+C="*res://globals/global_constants.gd"
+F="*res://globals/global_functions.gd"
 
 [input]
 

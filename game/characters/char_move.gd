@@ -33,7 +33,7 @@ func start_jump():
 	velocity.y += JUMP_STRENGTH
 	is_jumping = true
 	is_ascending = true
-	G.swap_layer_bit(self, G.LAYERS_HERO_GROUND, G.LAYERS_HERO_AIR)
+	F.swap_layer_bit(self, C.LAYERS_HERO_GROUND, C.LAYERS_HERO_AIR)
 	last_jump_y = position.y
 
 func _physics_process(delta):
@@ -42,7 +42,7 @@ func _physics_process(delta):
 		#finish jump
 		if (position.y >= last_jump_y):
 			is_jumping = false
-			G.swap_layer_bit(self, G.LAYERS_HERO_AIR, G.LAYERS_HERO_GROUND)
+			F.swap_layer_bit(self, C.LAYERS_HERO_AIR, C.LAYERS_HERO_GROUND)
 		else:
 			velocity.y += JUMP_STRENGTH if is_ascending else GRAVITY
 			if (last_jump_y - position.y >= PEAK_JUMP_HEIGHT):
