@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
-export (int) var PEAK_JUMP_HEIGHT = 75
-export (int) var JUMP_STRENGTH = -200
+export (float) var speed = 200.5
+export (float) var PEAK_JUMP_HEIGHT = 67.8
+export (float) var JUMP_STRENGTH = -212.7
+export (float) var MAX_JUMP_ASCEND_TIME = 0.7
 
 var is_jumping = false
 var is_ascending = false
 var last_jump_y = 0
+var current_jump_ascend_time = 0
 
-var GRAVITY = 98
+var GRAVITY = 98.5
 
 var velocity = Vector2()
 
@@ -31,6 +33,7 @@ func get_jump_input():
 	
 func start_jump():
 	velocity.y += JUMP_STRENGTH
+	current_jump_ascend_time = MAX_JUMP_ASCEND_TIME
 	is_jumping = true
 	is_ascending = true
 	F.swap_layer_bit(self, C.LAYERS_HERO_GROUND, C.LAYERS_HERO_AIR)
@@ -41,12 +44,16 @@ func _physics_process(delta):
 	if (is_jumping):
 		#finish jump
 		if (position.y >= last_jump_y):
+			current_jump_ascend_time = 0
 			is_jumping = false
 			F.swap_layer_bit(self, C.LAYERS_HERO_AIR, C.LAYERS_HERO_GROUND)
 		else:
+			if (is_ascending):
+				current_jump_ascend_time -= delta
+				if (current_jump_ascend_time <= 0 or 
+					last_jump_y - position.y >= PEAK_JUMP_HEIGHT):
+					is_ascending = false
 			velocity.y += JUMP_STRENGTH if is_ascending else GRAVITY
-			if (last_jump_y - position.y >= PEAK_JUMP_HEIGHT):
-				is_ascending = false
 	
 	else:
 		get_jump_input()

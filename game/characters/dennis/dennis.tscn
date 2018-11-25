@@ -18,9 +18,10 @@ collision_mask = 0
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
-speed = 200
-PEAK_JUMP_HEIGHT = 75
-JUMP_STRENGTH = -200
+speed = 200.5
+PEAK_JUMP_HEIGHT = 67.8
+JUMP_STRENGTH = -212.7
+MAX_JUMP_ASCEND_TIME = 0.7
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
