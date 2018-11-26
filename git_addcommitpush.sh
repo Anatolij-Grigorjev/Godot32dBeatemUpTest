@@ -14,5 +14,5 @@ for command_args in [
 	['commit', '-m', args.m],
 	['push']
 ]:
-	print ['git'] + command_args
+	print 'performing: ', ['git'] + command_args
 	print subprocess.check_output(['git'] + command_args)

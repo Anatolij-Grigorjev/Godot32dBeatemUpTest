@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://characters/char_move.gd" type="Script" id=1]
+[ext_resource path="res://characters/controlled_char_move.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -18,10 +18,10 @@ collision_mask = 0
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
-speed = 200.5
-PEAK_JUMP_HEIGHT = 67.8
-JUMP_STRENGTH = -212.7
-MAX_JUMP_ASCEND_TIME = 0.7
+speed = 0
+peak_jump_height = 0
+jump_strength = 0
+max_jump_ascend_time = 0
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 

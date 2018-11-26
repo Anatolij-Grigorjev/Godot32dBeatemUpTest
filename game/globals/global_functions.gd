@@ -12,7 +12,7 @@ func swap_layer_bit(node, from_layer, to_layer):
 	node.set_collision_layer_bit(to_layer, temp_layer_bit)
 
 func _ready():
-	print("Loaded global functions F!")
+	print("Loaded global functions node F!")
 	pass
 
 #func _process(delta):

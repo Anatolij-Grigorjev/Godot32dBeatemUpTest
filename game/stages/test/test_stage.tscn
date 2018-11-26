@@ -46,10 +46,6 @@ position = Vector2( 574.614, -12.0045 )
 [node name="dennis" parent="." index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 145, 10 )
-speed = 200.5
-PEAK_JUMP_HEIGHT = 67.8
-JUMP_STRENGTH = -212.7
-MAX_JUMP_ASCEND_TIME = 0.7
 
 [node name="vert_block" parent="." index="8" instance=ExtResource( 5 )]
 
