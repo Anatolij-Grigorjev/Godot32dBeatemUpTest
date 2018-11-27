@@ -7,6 +7,7 @@ func init_vals():
 	max_jump_ascend_time = 0.7
 	ground_layer = C.LAYERS_HERO_GROUND
 	air_layer = C.LAYERS_HERO_AIR
+	G.PLAYER_NODE = self
 	pass
 
 func get_move_input():

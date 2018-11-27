@@ -9,12 +9,12 @@ custom_solver_bias = 0.0
 radius = 15.6178
 height = 32.458
 
-[node name="dennis" type="KinematicBody2D"]
+[node name="dennis" type="KinematicBody2D" index="0"]
 
 position = Vector2( 400, 400 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 0
+collision_mask = 24
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]

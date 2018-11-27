@@ -3,6 +3,7 @@ extends Node
 ## GAME
 const Z_COEF = sin(deg2rad(45))
 const GRAVITY = 98.5
+const PLAYER_GROUP = "player_chars"
 
 ## LAYERS
 const LAYERS_HERO_GROUND = 0
