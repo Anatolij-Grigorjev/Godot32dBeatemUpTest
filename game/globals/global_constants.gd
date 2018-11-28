@@ -9,6 +9,9 @@ const PLAYER_GROUP = "player_chars"
 const LAYERS_HERO_GROUND = 0
 const LAYERS_HERO_AIR = 1
 const LAYERS_STATIC_BG = 2
+const LAYERS_ENEMY_GROUND = 3
+const LAYErS_ENEMY_AIR = 4
+
 
 
 func _ready():
