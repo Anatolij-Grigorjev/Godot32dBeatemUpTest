@@ -28,6 +28,12 @@ func get_move_input():
 func get_jump_input():
 	pass
 	
+func finish_jump():
+	current_jump_ascend_time = 0
+	is_jumping = false
+	position.y = last_jump_y
+	F.swap_layer_bit(self, air_layer, ground_layer)
+	
 func start_jump():
 	velocity.y += jump_strength
 	current_jump_ascend_time = max_jump_ascend_time
@@ -41,10 +47,7 @@ func _physics_process(delta):
 	if (is_jumping):
 		#finish jump
 		if (position.y >= last_jump_y):
-			current_jump_ascend_time = 0
-			is_jumping = false
-			position.y = last_jump_y
-			F.swap_layer_bit(self, air_layer, ground_layer)
+			finish_jump()
 		else:
 			if (is_ascending):
 				current_jump_ascend_time -= delta
