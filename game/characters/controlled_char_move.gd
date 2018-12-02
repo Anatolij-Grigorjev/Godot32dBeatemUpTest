@@ -1,7 +1,10 @@
 extends "char_move.gd"
 
+onready var anim = $anim
+var current_anim = ""
+
 func init_vals():
-	speed = 200.5
+	speed = 50.5
 	peak_jump_height = 67.8
 	jump_strength = -212.7
 	max_jump_ascend_time = 0.7
@@ -26,3 +29,16 @@ func get_move_input():
 func get_jump_input():
 	if (Input.is_action_just_pressed('jump')): 
 		start_jump()
+		
+func _physics_process(delta):
+	._physics_process(delta)
+	var new_anim = "idle"
+	if (not is_jumping):
+		var impulse = velocity.length_squared()
+		if (impulse > 0.01):
+			new_anim = "walk"
+	
+	#resolved anim
+	if (new_anim != current_anim):
+		current_anim = new_anim
+		anim.play(current_anim)
