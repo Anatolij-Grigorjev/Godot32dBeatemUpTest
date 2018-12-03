@@ -13,6 +13,8 @@ func init_vals():
 	max_jump_ascend_time = 0.7
 	ground_layer = C.LAYERS_ENEMY_GROUND
 	air_layer = C.LAYERS_ENEMY_AIR
+	siding_change_speed = 6
+	sprite = $sprite
 	pass
 	
 func finish_jump():

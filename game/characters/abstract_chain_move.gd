@@ -79,4 +79,7 @@ func _on_move_time_end():
 	else:
 		#none selected or selected not available - signal end of combo
 		emit_signal("combo_over")
+	
+	#clear selected move action after move
+	selected_next_action = ""
 	pass

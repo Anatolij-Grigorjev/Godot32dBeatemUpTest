@@ -21,6 +21,7 @@ speed = 0
 peak_jump_height = 0
 jump_strength = 0
 max_jump_ascend_time = 0
+siding_change_speed = 0
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 

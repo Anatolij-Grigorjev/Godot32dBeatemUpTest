@@ -4,14 +4,17 @@ export (float) var speed = 0
 export (float) var peak_jump_height = 0
 export (float) var jump_strength = 0
 export (float) var max_jump_ascend_time = 0
+export (float) var siding_change_speed = 0
 
 var ground_layer
 var air_layer
+var sprite
 
 var is_jumping = false
 var is_ascending = false
 var last_jump_y = 0
 var current_jump_ascend_time = 0
+
 
 var velocity = Vector2()
 
@@ -44,6 +47,10 @@ func start_jump():
 
 func _physics_process(delta):
 	get_move_input()
+	if (velocity.x < -siding_change_speed):
+		sprite.scale.x = -1
+	if (velocity.x > siding_change_speed):
+		sprite.scale.x = 1
 	if (is_jumping):
 		#finish jump
 		if (position.y >= last_jump_y):
