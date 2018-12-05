@@ -48,4 +48,18 @@ scale = Vector2( 1.22371, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="before_hitbox" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="duration_hitbox" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 
