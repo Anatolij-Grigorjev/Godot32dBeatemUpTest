@@ -55,17 +55,11 @@ func deactivate_hitbox():
 		during_hitbox_timer.stop()
 		
 func _hitbox_entered(body):
-	if (char_root.is_attacking):
-		if (hitbox_enabled):
-			hitbox_active_entered(body)
-		else:
-			hibox_inactive_entered(body)
+	if (char_root.is_attacking and hitbox_enabled):
+		hitbox_entered(body)
 
 
-func hibox_active_entered(body):
-	pass
-	
-func hibox_inactive_entered(body):
+func hibox_entered(body):
 	pass
 
 

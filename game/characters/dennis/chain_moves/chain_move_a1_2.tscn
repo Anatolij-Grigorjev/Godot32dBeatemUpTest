@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 31.5171, 29.1143 )
 
-[node name="dennis_cmr_a1_2" type="Node2D"]
+[node name="dennis_cmr_a1_2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -30,6 +30,7 @@ _sections_unfolded = [ "Animation", "Region" ]
 
 [node name="hitbox" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -42,5 +43,19 @@ audio_bus_name = "Master"
 
 position = Vector2( 21.8703, 4.77628 )
 shape = SubResource( 1 )
+
+[node name="before_hitbox" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="duration_hitbox" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

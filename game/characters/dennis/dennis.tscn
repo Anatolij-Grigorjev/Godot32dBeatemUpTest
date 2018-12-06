@@ -106,7 +106,7 @@ siding_change_speed = 0
 texture = ExtResource( 2 )
 vframes = 7
 hframes = 10
-frame = 10
+frame = 16
 _sections_unfolded = [ "Animation", "Region" ]
 
 [node name="body" type="CollisionShape2D" parent="." index="1"]
