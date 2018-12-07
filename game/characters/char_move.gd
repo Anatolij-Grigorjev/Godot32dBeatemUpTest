@@ -37,6 +37,7 @@ func finish_jump():
 	position.y = last_jump_y
 	F.swap_layer_bit(self, air_layer, ground_layer)
 	
+	
 func start_jump():
 	velocity.y += jump_strength
 	current_jump_ascend_time = max_jump_ascend_time

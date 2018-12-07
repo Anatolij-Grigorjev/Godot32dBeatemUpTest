@@ -69,3 +69,14 @@ func _physics_process(delta):
 func _finish_combo():
 	is_attacking = false
 	anim.play(current_anim)
+
+func finish_jump():
+	#reset attack node layer
+	.finish_jump()
+	F.swap_layer_bit(combo_start, air_layer, ground_layer)
+	
+func start_jump():
+	#reset attack node layer
+	.start_jump()
+	F.swap_layer_bit(combo_start, ground_layer, air_layer)
+	
