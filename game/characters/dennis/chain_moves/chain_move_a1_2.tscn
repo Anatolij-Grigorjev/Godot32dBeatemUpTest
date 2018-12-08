@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 31.5171, 29.1143 )
 
-[node name="dennis_cmr_a1_2" type="Node2D" index="0"]
+[node name="dennis_cmr_a1_2" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -32,14 +32,16 @@ _sections_unfolded = [ "Animation", "Region" ]
 
 editor/display_folded = true
 input_pickable = true
-gravity_vec = Vector2( 0, 1 )
+gravity_vec = Vector2( 0, 0 )
 gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+linear_damp = 0.0
+angular_damp = 0.0
+monitorable = false
+collision_layer = 0
 collision_mask = 24
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Audio Bus", "Collision" ]
 
 [node name="shape" type="CollisionShape2D" parent="hitbox" index="0"]
 

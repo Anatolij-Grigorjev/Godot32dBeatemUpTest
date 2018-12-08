@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 6, 5 ]
 }
 
-[node name="dennis" type="KinematicBody2D" index="0"]
+[node name="dennis" type="KinematicBody2D"]
 
 position = Vector2( 400, 400 )
 input_pickable = false
@@ -95,6 +95,9 @@ collision_mask = 24
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
+__meta__ = {
+"_edit_horizontal_guides_": [ 420.061 ]
+}
 speed = 0
 peak_jump_height = 0
 jump_strength = 0

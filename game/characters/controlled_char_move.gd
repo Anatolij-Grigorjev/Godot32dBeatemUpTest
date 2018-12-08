@@ -69,14 +69,12 @@ func _physics_process(delta):
 func _finish_combo():
 	is_attacking = false
 	anim.play(current_anim)
-
-func finish_jump():
-	#reset attack node layer
-	.finish_jump()
-	F.swap_layer_bit(combo_start, air_layer, ground_layer)
 	
-func start_jump():
-	#reset attack node layer
-	.start_jump()
-	F.swap_layer_bit(combo_start, ground_layer, air_layer)
+func adjust_velocity_siding():
+	if (velocity.x < -siding_change_speed):
+		sprite.scale.x = -1
+		combo_start.scale.x = -1
+	if (velocity.x > siding_change_speed):
+		sprite.scale.x = 1
+		combo_start.scale.x = 1
 	

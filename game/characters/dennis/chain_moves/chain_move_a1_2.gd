@@ -9,3 +9,6 @@ func init_move_vars():
 	during_hitbox_timer = $duration_hitbox
 	hitbox_active_from_sec = 0.3
 	hitbox_active_time_sec = 0.6
+
+func hibox_entered(body):
+	print("Body % entered attack1_2" % body)

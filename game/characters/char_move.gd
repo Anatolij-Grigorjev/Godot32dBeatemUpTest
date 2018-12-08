@@ -45,13 +45,16 @@ func start_jump():
 	is_ascending = true
 	F.swap_layer_bit(self, ground_layer, air_layer)
 	last_jump_y = position.y
-
-func _physics_process(delta):
-	get_move_input()
+	
+func adjust_velocity_siding():
 	if (velocity.x < -siding_change_speed):
 		sprite.scale.x = -1
 	if (velocity.x > siding_change_speed):
 		sprite.scale.x = 1
+
+func _physics_process(delta):
+	get_move_input()
+	adjust_velocity_siding()
 	if (is_jumping):
 		#finish jump
 		if (position.y >= last_jump_y):

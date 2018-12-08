@@ -10,3 +10,6 @@ func init_vars_and_hb_time():
 	hitbox_active_from_sec = 0.3
 	hitbox_active_time_sec = 0.6
 	next_chain_a1 = $dennis_cmr_a1_2
+
+func hibox_entered(body):
+	print("Body % entered attack1_1" % body)
