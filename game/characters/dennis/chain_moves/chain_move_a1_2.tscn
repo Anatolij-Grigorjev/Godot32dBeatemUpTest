@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_2.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 31.5171, 29.1143 )
 
 [node name="dennis_cmr_a1_2" type="Node2D"]
 
@@ -28,34 +23,14 @@ hframes = 10
 frame = 15
 _sections_unfolded = [ "Animation", "Region" ]
 
-[node name="hitbox" type="Area2D" parent="." index="2"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 0 )
-gravity = 98.0
-linear_damp = 0.0
-angular_damp = 0.0
-monitorable = false
-collision_layer = 0
-collision_mask = 24
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Audio Bus", "Collision" ]
-
-[node name="shape" type="CollisionShape2D" parent="hitbox" index="0"]
-
-position = Vector2( 21.8703, 4.77628 )
-shape = SubResource( 1 )
-
-[node name="before_hitbox" type="Timer" parent="." index="3"]
+[node name="before_hitbox" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="duration_hitbox" type="Timer" parent="." index="4"]
+[node name="duration_hitbox" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0

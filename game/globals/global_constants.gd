@@ -4,6 +4,7 @@ extends Node
 const Z_COEF = sin(deg2rad(45))
 const GRAVITY = 98.5
 const PLAYER_GROUP = "player_chars"
+const ONSCREEN_ENEMIES_GROUP = "onscreen_enemies"
 
 ## LAYERS
 const LAYERS_HERO_GROUND = 0

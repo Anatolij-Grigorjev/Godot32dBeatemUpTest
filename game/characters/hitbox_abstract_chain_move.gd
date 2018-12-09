@@ -1,7 +1,9 @@
 extends "abstract_chain_move.gd"
 
 
-var hitbox_node
+var hitbox_rect_size = Vector2()
+var hitbox_rect_offset = Vector2()
+var z_radius = 0
 var hitbox_enabled = false
 
 #timer boundaries
@@ -31,8 +33,6 @@ func init_move_vars():
 		during_hitbox_timer.stop()
 		during_hitbox_timer.connect("timeout", self, "deactivate_hitbox")
 	
-	hitbox_node.connect("body_entered", self, "_hitbox_entered")
-	
 
 #overrid this for vars setting
 func init_vars_and_hb_time():
@@ -54,12 +54,31 @@ func deactivate_hitbox():
 	if (during_hitbox_timer != null):
 		during_hitbox_timer.stop()
 		
-func _hitbox_entered(body):
-	if (char_root.is_attacking and hitbox_enabled):
-		hitbox_entered(body)
+	
+func _progress(delta):
+	var char_z
+	if (hitbox_enabled and char_root.is_attacking):
+		var onscreen_enemies = get_tree().get_nodes_in_group(C.ONSCREEN_ENEMIES_GROUP)
+		if (not onscreen_enemies.empty()):
+			char_z = F.char_actual_Z(char_root)
+		for enemy in onscreen_enemies:
+			#skip enemies that cant be hit (due to receiving hit, dying, etc)
+			if (not enemy.can_be_hit()):
+				continue
+			var enemy_z = F.char_actual_Z(enemy)
 
+			if (F.val_in_target_radius(char_z, enemy_z, z_radius)):
+				#check hit
+				var actual_hit_rect = Rect2(
+					self.global_position + hitbox_rect_offset,
+					hitbox_rect_size
+				)
+				if (actual_hit_rect.has_point(enemy.global_position)):
+					perform_enemy_hit(enemy)
+				
+	#do move input checks for future moves
+	._progress(delta)
 
-func hibox_entered(body):
+func perform_enemy_hit(enemy_node):
 	pass
-
 
