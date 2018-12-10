@@ -1,6 +1,6 @@
 extends "char_move.gd"
 
-const DISTANCE_TO_PLAYER = 100
+const DISTANCE_TO_PLAYER = 50
 const DISTANCE_DEADZONE = 25
 const MAX_JUMP_COOLDOWN = 5.0
 
@@ -15,11 +15,15 @@ func init_vals():
 	air_layer = C.LAYERS_ENEMY_AIR
 	siding_change_speed = 6
 	sprite = $sprite
+	add_to_group(C.ONSCREEN_ENEMIES_GROUP)
 	pass
 	
 func finish_jump():
 	.finish_jump()
 	current_jump_cooldown = MAX_JUMP_COOLDOWN
+
+func can_be_hit():
+	return true
 	
 func _physics_process(delta):
 	._physics_process(delta)

@@ -20,11 +20,8 @@ func init_move_vars():
 	if (hitbox_active_from_sec != null and before_hitbox_timer != null):
 		before_hitbox_timer.wait_time = hitbox_active_from_sec
 		before_hitbox_timer.one_shot = true
-		before_hitbox_timer.start()
+		before_hitbox_timer.stop()
 		before_hitbox_timer.connect("timeout", self, "activate_hitbox")
-	else:
-		#if no start timer activate immediately
-		activate_hitbox()
 	
 	#if no end timer, stop at move end
 	if (hitbox_active_time_sec != null and during_hitbox_timer != null):
@@ -37,6 +34,13 @@ func init_move_vars():
 #overrid this for vars setting
 func init_vars_and_hb_time():
 	pass
+	
+func begin(char_animator):
+	.begin(char_animator)
+	if (before_hitbox_timer != null):
+		before_hitbox_timer.start()
+	else:
+		activate_hitbox()
 	
 func reset_move_vars():
 	.reset_move_vars()
@@ -55,17 +59,17 @@ func deactivate_hitbox():
 		during_hitbox_timer.stop()
 		
 	
-func _progress(delta):
+func _process(delta):
 	var char_z
 	if (hitbox_enabled and char_root.is_attacking):
 		var onscreen_enemies = get_tree().get_nodes_in_group(C.ONSCREEN_ENEMIES_GROUP)
 		if (not onscreen_enemies.empty()):
-			char_z = F.char_actual_Z(char_root)
+			char_z = F.char_actual_z(char_root)
 		for enemy in onscreen_enemies:
 			#skip enemies that cant be hit (due to receiving hit, dying, etc)
 			if (not enemy.can_be_hit()):
 				continue
-			var enemy_z = F.char_actual_Z(enemy)
+			var enemy_z = F.char_actual_z(enemy)
 
 			if (F.val_in_target_radius(char_z, enemy_z, z_radius)):
 				#check hit
@@ -77,7 +81,7 @@ func _progress(delta):
 					perform_enemy_hit(enemy)
 				
 	#do move input checks for future moves
-	._progress(delta)
+	._process(delta)
 
 func perform_enemy_hit(enemy_node):
 	pass

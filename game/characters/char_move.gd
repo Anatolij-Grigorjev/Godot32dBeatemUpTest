@@ -31,6 +31,9 @@ func get_move_input():
 func get_jump_input():
 	pass
 	
+func can_be_hit():
+	return false
+	
 func finish_jump():
 	current_jump_ascend_time = 0
 	is_jumping = false

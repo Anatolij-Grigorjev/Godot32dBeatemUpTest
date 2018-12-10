@@ -17,7 +17,7 @@ func val_in_target_radius(val, target, radius):
 	
 #get character position z coordinate, respecting jump
 #z depends on air/ground and coefficient
-func char_actual_Z(char_node):
+func char_actual_z(char_node):
 	var char_position = char_node.position
 	#take current y if character is on the ground
 	#if they jump y depends on where they jumped from

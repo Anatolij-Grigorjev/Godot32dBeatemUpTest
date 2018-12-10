@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://characters/bandit/bandit_0.png" type="Texture" id=1]
+[ext_resource path="res://characters/ai_follow_char_move.gd" type="Script" id=1]
+[ext_resource path="res://characters/bandit/bandit_0.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -14,11 +15,17 @@ input_pickable = false
 collision_layer = 8
 collision_mask = 3
 collision/safe_margin = 0.08
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
+speed = 0
+peak_jump_height = 0
+jump_strength = 0
+max_jump_ascend_time = 0
+siding_change_speed = 0
 
 [node name="sprite" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 vframes = 6
 hframes = 10
 _sections_unfolded = [ "Animation" ]
