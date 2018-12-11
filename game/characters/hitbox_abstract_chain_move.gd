@@ -77,6 +77,7 @@ func _process(delta):
 					self.global_position + hitbox_rect_offset,
 					hitbox_rect_size
 				)
+
 				if (actual_hit_rect.has_point(enemy.global_position)):
 					perform_enemy_hit(enemy)
 				

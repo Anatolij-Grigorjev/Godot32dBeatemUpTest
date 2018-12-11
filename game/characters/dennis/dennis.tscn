@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://characters/controlled_char_move.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 [ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/character_z_label.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
 
@@ -131,5 +132,31 @@ anims/walk = SubResource( 5 )
 blend_times = [  ]
 
 [node name="dennis_cmr_a1_1" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="z_label" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.0
+margin_top = -44.0
+margin_right = 7.0
+margin_bottom = -30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "z: 500"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "custom_colors" ]
 
 

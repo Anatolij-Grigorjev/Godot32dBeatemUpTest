@@ -37,7 +37,7 @@ func can_be_hit():
 func finish_jump():
 	current_jump_ascend_time = 0
 	is_jumping = false
-	position.y = last_prejump_y
+	global_position.y = last_prejump_y
 	F.swap_layer_bit(self, air_layer, ground_layer)
 	
 	
@@ -47,7 +47,7 @@ func start_jump():
 	is_jumping = true
 	is_ascending = true
 	F.swap_layer_bit(self, ground_layer, air_layer)
-	last_prejump_y = position.y
+	last_prejump_y = global_position.y
 	
 func adjust_velocity_siding():
 	if (velocity.x < -siding_change_speed):
@@ -60,13 +60,13 @@ func _physics_process(delta):
 	adjust_velocity_siding()
 	if (is_jumping):
 		#finish jump
-		if (position.y >= last_prejump_y):
+		if (global_position.y >= last_prejump_y):
 			finish_jump()
 		else:
 			if (is_ascending):
 				current_jump_ascend_time -= delta
 				if (current_jump_ascend_time <= 0 or 
-					last_prejump_y - position.y >= peak_jump_height):
+					last_prejump_y - global_position.y >= peak_jump_height):
 					is_ascending = false
 			velocity.y += jump_strength if is_ascending else C.GRAVITY
 	else:
