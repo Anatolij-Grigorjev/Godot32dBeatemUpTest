@@ -62,6 +62,7 @@ func reset_move_vars():
 	is_performing = false
 	timer.stop()
 
+
 func _on_move_time_end():
 	
 	reset_move_vars()
