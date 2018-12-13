@@ -4,7 +4,7 @@
 [ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=3]
 
-[node name="dennis_cmr_a1_1" type="Node2D"]
+[node name="dennis_cmr_a1_1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

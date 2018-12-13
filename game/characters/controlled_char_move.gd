@@ -17,7 +17,7 @@ func init_vals():
 	G.PLAYER_NODE = self
 	siding_change_speed = 5
 	sprite = $sprite
-	combo_start = $dennis_cmr_a1_2
+	combo_start = $dennis_cmr_a1_1
 	combo_start.set_char(self)
 	pass
 

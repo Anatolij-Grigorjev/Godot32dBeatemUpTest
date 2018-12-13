@@ -3,7 +3,7 @@
 [ext_resource path="res://characters/controlled_char_move.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 [ext_resource path="res://characters/character_z_label.gd" type="Script" id=3]
-[ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_1.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=2]
 
@@ -14,7 +14,7 @@ height = 32.458
 [sub_resource type="Animation" id=3]
 
 resource_name = "attack1_1"
-length = 1.5
+length = 1.6
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 6, 5 ]
 }
 
-[node name="dennis" type="KinematicBody2D"]
+[node name="dennis" type="KinematicBody2D" index="0"]
 
 position = Vector2( 400, 400 )
 input_pickable = false
@@ -110,7 +110,7 @@ siding_change_speed = 0
 texture = ExtResource( 2 )
 vframes = 7
 hframes = 10
-frame = 16
+frame = 13
 _sections_unfolded = [ "Animation", "Region" ]
 
 [node name="body" type="CollisionShape2D" parent="." index="1"]
@@ -157,6 +157,6 @@ max_lines_visible = -1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "custom_colors" ]
 
-[node name="dennis_cmr_a1_2" parent="." index="4" instance=ExtResource( 4 )]
+[node name="dennis_cmr_a1_1" parent="." index="4" instance=ExtResource( 4 )]
 
 

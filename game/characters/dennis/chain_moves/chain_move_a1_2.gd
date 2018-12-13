@@ -1,8 +1,9 @@
-extends "../../hitbox_abstract_chain_move.gd"
+extends "../../logging_hitbox_abstract_chain_move.gd"
 
-func init_move_vars():
+func init_vars_and_hb_time():
 	anim = "attack1_2"
 	move_duration = 1.5
+	next_move_transition_margin = 0.3
 	timer = $Timer
 	before_hitbox_timer = $before_hitbox
 	during_hitbox_timer = $duration_hitbox
@@ -11,7 +12,3 @@ func init_move_vars():
 	hitbox_rect_size = Vector2(54, 40)
 	hitbox_rect_offset = Vector2(-1, -11)
 	z_radius = 15
-	
-func perform_enemy_hit(enemy_node):
-	print("attack1_2 hit %s" % enemy_node)
-	pass
