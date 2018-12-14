@@ -4,7 +4,8 @@ func init_vars_and_hb_time():
 	anim = "attack1_2"
 	move_duration = 1.5
 	next_move_transition_margin = 0.3
-	timer = $Timer
+	pre_transition_timer = $pre_transition_timer
+	post_transition_timer = $post_transition_timer
 	before_hitbox_timer = $before_hitbox
 	during_hitbox_timer = $duration_hitbox
 	hitbox_active_from_sec = 0.3

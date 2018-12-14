@@ -20,6 +20,7 @@ var char_animator #animator cached after mov started (to pass along)
 
 #internal var, for script logic, no need to init
 var half_move_duration 
+var ok_to_switch_move = false
 
 #combo finish signal
 signal combo_over
@@ -47,6 +48,15 @@ func _process(delta):
 		for action in next_valid_actions:
 			if Input.is_action_just_pressed(action):
 				selected_next_action = action
+	if (ok_to_switch_move):
+		var move_to_begin = null
+		if (selected_next_action == "attack1" && next_chain_a1 != null):
+			move_to_begin = next_chain_a1
+		elif (selected_next_action == "attack2" && next_chain_a2 != null):
+			move_to_begin = next_chain_a2
+		if (move_to_begin != null):
+			reset_move_vars()
+			move_to_begin.begin(char_animator)
 	pass
 
 #starts combo move sequence. 
@@ -73,27 +83,29 @@ func set_char(character_node):
 
 
 func reset_move_vars():
+	print("%s reset vars" % anim)
 	is_performing = false
+	ok_to_switch_move = false
 	reset_move_timers()
 	
 func reset_move_timers():
+	print("%s reset timers" % anim)
 	pre_transition_timer.stop()
 	post_transition_timer.stop()
 
 func _on_pre_transition_part_end():
+	print("%s pre trans end" % anim)
 	#stop move timers
 	pre_transition_timer.stop()
 	post_transition_timer.start()
 	
 	#try continue selected attack chain
-	if (selected_next_action == "attack1" && next_chain_a1 != null):
-		next_chain_a1.begin(char_animator)
-	elif (selected_next_action == "attack2" && next_chain_a2 != null):
-		next_chain_a2.begin(char_animator)
+	ok_to_switch_move = true
 	pass
 
 
 func _on_move_time_end():
+	print("%s move end" % anim)
 	#reset all move vars
 	reset_move_vars()
 	
