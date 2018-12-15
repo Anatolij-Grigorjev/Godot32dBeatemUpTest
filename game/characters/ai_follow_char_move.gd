@@ -25,8 +25,8 @@ func finish_jump():
 func can_be_hit():
 	return true
 	
-func _physics_process(delta):
-	._physics_process(delta)
+func _on_fixed_process(delta):
+	._on_fixed_process(delta)
 	if(not is_jumping and current_jump_cooldown > 0):
 		current_jump_cooldown -= delta
 

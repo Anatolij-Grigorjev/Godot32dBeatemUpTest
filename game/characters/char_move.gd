@@ -54,8 +54,8 @@ func adjust_velocity_siding():
 		sprite.scale.x = -1
 	if (velocity.x > siding_change_speed):
 		sprite.scale.x = 1
-
-func _physics_process(delta):
+		
+func _on_fixed_process(delta):
 	get_move_input()
 	adjust_velocity_siding()
 	if (is_jumping):
@@ -72,3 +72,7 @@ func _physics_process(delta):
 	else:
 		get_jump_input()
 	move_and_slide(velocity)
+
+#this method is final, shouldnt be overriden
+func _physics_process(delta):
+	_on_fixed_process(delta)

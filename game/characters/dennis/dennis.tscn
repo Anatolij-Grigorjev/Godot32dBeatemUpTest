@@ -1,17 +1,17 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://characters/controlled_char_move.gd" type="Script" id=1]
+[ext_resource path="res://characters/player_control_comboing_char_move.gd" type="Script" id=1]
 [ext_resource path="res://characters/dennis/dennis_0.png" type="Texture" id=2]
 [ext_resource path="res://characters/character_z_label.gd" type="Script" id=3]
 [ext_resource path="res://characters/dennis/chain_moves/chain_move_a1_1.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 15.6178
 height = 32.458
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource_name = "attack1_1"
 length = 1.6
@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 
 resource_name = "attack1_2"
 length = 1.5
@@ -116,7 +116,7 @@ _sections_unfolded = [ "Animation", "Region" ]
 [node name="body" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( -1.13553, -3.40656 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="." index="2"]
 
@@ -125,8 +125,8 @@ autoplay = "idle"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/attack1_1 = SubResource( 3 )
-anims/attack1_2 = SubResource( 6 )
+anims/attack1_1 = SubResource( 2 )
+anims/attack1_2 = SubResource( 3 )
 anims/idle = SubResource( 4 )
 anims/walk = SubResource( 5 )
 blend_times = [  ]
@@ -158,5 +158,14 @@ script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "custom_colors" ]
 
 [node name="dennis_cmr_a1_1" parent="." index="4" instance=ExtResource( 4 )]
+
+[node name="post_combo_cooldown" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="post_combo_cooldown" to="." method="_on_combo_cooldown_finished"]
 
 
