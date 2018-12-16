@@ -13,6 +13,7 @@ const LAYERS_STATIC_BG = 2
 const LAYERS_ENEMY_GROUND = 3
 const LAYERS_ENEMY_AIR = 4
 
+const DATETIME_FORMAT = "%s.%s.%s %s:%s:%s"
 
 
 func _ready():

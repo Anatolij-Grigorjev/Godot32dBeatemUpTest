@@ -32,6 +32,24 @@ func swap_layer_bit(node, from_layer, to_layer):
 	var temp_layer_bit = node.get_collision_layer_bit(from_layer)
 	node.set_collision_layer_bit(from_layer, node.get_collision_layer_bit(to_layer))
 	node.set_collision_layer_bit(to_layer, temp_layer_bit)
+	
+	
+#log formatted
+func logf(format, args_list):
+	var log_statement = format % args_list
+	#print log date in utc
+	print("[%s UTC]: %s" % [format_date(OS.get_datetime(true)), log_statement])
+	
+func format_date(datetime_dict):
+	return C.DATETIME_FORMAT % [
+		datetime_dict.year,
+		datetime_dict.month,
+		datetime_dict.day,
+		datetime_dict.hour,
+		datetime_dict.minute,
+		datetime_dict.second
+	]
+	
 
 func _ready():
 	print("Loaded global functions node F!")

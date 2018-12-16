@@ -39,13 +39,16 @@ func get_jump_input():
 func get_attack_input():
 	if Input.is_action_just_pressed("attack1") and allowed_combo:
 		is_attacking = true
+		F.logf("%s start combo", name)
 		combo_start.begin(anim)
 		
 func _finish_combo():
 	._finish_combo()
+	F.logf("%s finish combo", name)
 	allowed_combo = false
 	post_combo_cooldown_timer.start()
 	
 func _on_combo_cooldown_finished():
+	F.logf("%s finish combo cooldown", name)
 	allowed_combo = true
 	post_combo_cooldown_timer.stop()

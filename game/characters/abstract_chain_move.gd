@@ -83,18 +83,15 @@ func set_char(character_node):
 
 
 func reset_move_vars():
-	print("%s reset vars" % anim)
 	is_performing = false
 	ok_to_switch_move = false
 	reset_move_timers()
 	
 func reset_move_timers():
-	print("%s reset timers" % anim)
 	pre_transition_timer.stop()
 	post_transition_timer.stop()
 
 func _on_pre_transition_part_end():
-	print("%s pre trans end" % anim)
 	#stop move timers
 	pre_transition_timer.stop()
 	post_transition_timer.start()
@@ -105,7 +102,6 @@ func _on_pre_transition_part_end():
 
 
 func _on_move_time_end():
-	print("%s move end" % anim)
 	#reset all move vars
 	reset_move_vars()
 	
