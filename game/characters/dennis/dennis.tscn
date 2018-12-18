@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 6, 5 ]
 }
 
-[node name="dennis" type="KinematicBody2D" index="0"]
+[node name="dennis" type="KinematicBody2D"]
 
 position = Vector2( 400, 400 )
 input_pickable = false

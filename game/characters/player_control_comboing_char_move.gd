@@ -49,6 +49,6 @@ func _finish_combo():
 	post_combo_cooldown_timer.start()
 	
 func _on_combo_cooldown_finished():
-	F.logf("%s finish combo cooldown", name)
+	F.logf("%s finish post-combo cooldown", name)
 	allowed_combo = true
 	post_combo_cooldown_timer.stop()
