@@ -84,6 +84,7 @@ func _process(delta):
 	#do move input checks for future moves
 	._process(delta)
 
+#return true or false if hit connected (enemy wasnt invulnerable)
 func perform_enemy_hit(enemy_node):
 	pass
 

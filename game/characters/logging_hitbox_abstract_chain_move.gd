@@ -3,8 +3,8 @@ extends "hitbox_abstract_chain_move.gd"
 var logged_hits = {}
 
 func perform_enemy_hit(enemy_node):
-	.perform_enemy_hit(enemy_node)
-	if (not logged_hits.has(enemy_node)):
+	var hit_happened = .perform_enemy_hit(enemy_node)
+	if (not logged_hits.has(enemy_node) and hit_happened):
 		F.logf("%s %s hit enemy %s", [char_root.name, anim, enemy_node])
 		logged_hits[enemy_node] = true
 		
