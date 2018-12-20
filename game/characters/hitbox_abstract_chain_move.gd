@@ -12,6 +12,8 @@ var hitbox_active_time_sec
 var before_hitbox_timer
 var during_hitbox_timer
 
+var hit_enemies = []
+
 
 func init_move_vars():
 	.init_move_vars()
@@ -45,6 +47,7 @@ func begin(char_animator):
 func reset_move_vars():
 	.reset_move_vars()
 	deactivate_hitbox()
+	hit_enemies.clear()
 
 func activate_hitbox():
 	hitbox_enabled = true
@@ -79,12 +82,14 @@ func _process(delta):
 				)
 
 				if (actual_hit_rect.has_point(enemy.global_position)):
-					perform_enemy_hit(enemy)
+					hit_new_enemy(enemy)
 				
 	#do move input checks for future moves
 	._process(delta)
 
-#return true or false if hit connected (enemy wasnt invulnerable)
-func perform_enemy_hit(enemy_node):
+func hit_new_enemy(enemy_node):
+	if (not enemy_node in hit_enemies):
+		process_enemy_hit(enemy_node)
+		hit_enemies.append(enemy_node)
 	pass
 

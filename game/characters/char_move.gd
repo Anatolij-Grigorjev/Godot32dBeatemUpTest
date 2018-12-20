@@ -76,3 +76,9 @@ func _on_fixed_process(delta):
 #this method is final, shouldnt be overriden
 func _physics_process(delta):
 	_on_fixed_process(delta)
+	
+#process the movement portion of being hit
+# velocity describes intensity and direction of hit
+# knockdown intensity describes ability of hit to make character fall
+func receive_hit_movement(velocity = Vector2(), knockdown_intensity = 0):
+	pass  

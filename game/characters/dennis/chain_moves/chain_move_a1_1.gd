@@ -14,3 +14,8 @@ func init_vars_and_hb_time():
 	hitbox_rect_size = Vector2(58, 40)
 	hitbox_rect_offset = Vector2(-7, -18)
 	z_radius = 15
+	
+func process_enemy_hit(enemy_node):
+	.process_enemy_hit(enemy_node)
+	enemy_node.move_and_slide(Vector2(100, -50))
+	pass

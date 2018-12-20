@@ -1,17 +1,11 @@
 extends "hitbox_abstract_chain_move.gd"
 
-var logged_hits = {}
-
-func perform_enemy_hit(enemy_node):
-	var hit_happened = .perform_enemy_hit(enemy_node)
-	if (not logged_hits.has(enemy_node) and hit_happened):
-		F.logf("%s %s hit enemy %s", [char_root.name, anim, enemy_node])
-		logged_hits[enemy_node] = true
+func process_enemy_hit(enemy_node):
+	F.logf("%s %s hit enemy %s", [char_root.name, anim, enemy_node])
 		
 func reset_move_vars():
 	F.logf("%s %s reset vars", [char_root.name, anim])
 	.reset_move_vars()
-	logged_hits.clear()
 	
 func activate_hitbox():
 	F.logf("%s %s activate hitbox", [char_root.name, anim])
