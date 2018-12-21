@@ -12,6 +12,7 @@ var sprite
 
 var is_jumping = false
 var is_ascending = false
+var is_stunned = false
 var last_prejump_y = 0
 var current_jump_ascend_time = 0
 
@@ -56,7 +57,8 @@ func adjust_velocity_siding():
 		sprite.scale.x = 1
 		
 func _on_fixed_process(delta):
-	get_move_input()
+	if (not is_stunned):
+		get_move_input()
 	adjust_velocity_siding()
 	if (is_jumping):
 		#finish jump
@@ -80,5 +82,8 @@ func _physics_process(delta):
 #process the movement portion of being hit
 # velocity describes intensity and direction of hit
 # knockdown intensity describes ability of hit to make character fall
-func receive_hit_movement(velocity = Vector2(), knockdown_intensity = 0):
+func receive_hit_movement(hit_velocity = Vector2(), hit_knockdown_intensity = 0):
+	F.logf("%s stunned and hit for velocity %s", [self, hit_velocity])
+	velocity = hit_velocity
+	is_stunned = true
 	pass  

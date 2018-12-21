@@ -23,7 +23,7 @@ func finish_jump():
 	current_jump_cooldown = MAX_JUMP_COOLDOWN
 
 func can_be_hit():
-	return true
+	return not is_stunned
 	
 func _on_fixed_process(delta):
 	._on_fixed_process(delta)
