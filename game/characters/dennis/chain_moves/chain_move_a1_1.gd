@@ -17,5 +17,5 @@ func init_vars_and_hb_time():
 	
 func process_enemy_hit(enemy_node):
 	.process_enemy_hit(enemy_node)
-	enemy_node.receive_hit_movement(Vector2(200, 50))
+	enemy_node.receive_hit_movement(Vector2(50, -50))
 	pass

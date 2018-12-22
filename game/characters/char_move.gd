@@ -86,4 +86,5 @@ func receive_hit_movement(hit_velocity = Vector2(), hit_knockdown_intensity = 0)
 	F.logf("%s stunned and hit for velocity %s", [self, hit_velocity])
 	velocity = hit_velocity
 	is_stunned = true
+	
 	pass  
