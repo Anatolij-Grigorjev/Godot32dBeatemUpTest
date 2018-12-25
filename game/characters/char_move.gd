@@ -19,6 +19,7 @@ var is_falling = false
 var last_preair_y = 0
 var current_jump_ascend_time = 0
 var current_fall_ascend_time = 0
+var current_stun_time = 0
 
 var velocity = Vector2()
 
@@ -27,6 +28,17 @@ func change_layer_ground2air():
 	
 func change_layer_air2ground():
 	F.swap_layer_bit(self, air_layer, ground_layer)
+	
+func start_fall(fall_ascend_time):
+	is_falling = true
+	is_stunned = true
+	current_fall_ascend_time = fall_ascend_time
+	last_preair_y = global_position.y
+	change_layer_ground2air()
+	
+func start_stunned(stun_time):
+	is_stunned = true
+	current_stun_time = stun_time
 
 func _ready():
 	init_vals()
@@ -56,6 +68,10 @@ func finish_fall():
 	global_position.y = last_preair_y
 	is_stunned = false
 	change_layer_air2ground()
+	
+func finish_stun():
+	is_stunned = false
+	current_stun_time = 0.0
 	
 func start_jump():
 	velocity.y += jump_strength
@@ -104,7 +120,10 @@ func _on_fixed_process(delta):
 			process_jumping(delta)
 	if (is_falling):
 		process_falling(delta)
-
+	if (current_stun_time > 0):
+		current_stun_time -= delta
+	else:
+		finish_stun()
 	move_and_slide(velocity)
 
 #this method is final, shouldnt be overriden
@@ -116,10 +135,6 @@ func _physics_process(delta):
 # knockdown intensity describes ability of hit to make character fall
 func receive_hit_movement(hit_velocity = Vector2(), hit_knockdown_intensity = 0):
 	F.logf("%s stunned and hit for velocity %s", [self, hit_velocity])
-	velocity = hit_velocity
-	is_stunned = true
-	is_falling = true
-	current_fall_ascend_time = 1.0
-	last_preair_y = global_position.y
-	change_layer_ground2air()
+#	velocity = hit_velocity
+	start_stunned(1.0)
 	pass  
