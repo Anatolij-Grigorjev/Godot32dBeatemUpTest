@@ -8,6 +8,9 @@ func y2z(y):
 func z2y(z):
 	return round(z / C.Z_COEF)
 	
+func knockdown_intensity2fall_ascend_time(knockdown_intensity):
+	return knockdown_intensity * C.KNOCK_2_FALL_COEF
+	
 func val_in_target_radius(val, target, radius):
 	#check if value is in radius of target with a short circuit if equal
 	return (

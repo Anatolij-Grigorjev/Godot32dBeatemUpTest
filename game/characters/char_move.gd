@@ -119,7 +119,7 @@ func receive_hit_movement(hit_velocity = Vector2(), hit_knockdown_intensity = 0)
 	velocity = hit_velocity
 	is_stunned = true
 	is_falling = true
-	current_fall_ascend_time = 0.5
+	current_fall_ascend_time = 1.0
 	last_preair_y = global_position.y
 	change_layer_ground2air()
 	pass  

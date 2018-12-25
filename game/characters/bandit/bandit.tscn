@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 14.3574
 height = 38.1215
 
-[node name="bandit" type="KinematicBody2D" index="0"]
+[node name="bandit" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8

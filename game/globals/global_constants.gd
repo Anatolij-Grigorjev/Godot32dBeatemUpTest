@@ -2,6 +2,7 @@ extends Node
 
 ## GAME
 const Z_COEF = sin(deg2rad(45))
+const KNOCK_2_FALL_COEF = 0.01
 const GRAVITY = 98.5
 const PLAYER_GROUP = "player_chars"
 const ONSCREEN_ENEMIES_GROUP = "onscreen_enemies"
