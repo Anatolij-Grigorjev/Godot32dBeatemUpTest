@@ -43,6 +43,10 @@ func logf(format, args_list):
 	#print log date in utc
 	print("[%s UTC]: %s" % [format_date(OS.get_datetime(true)), log_statement])
 	
+func assert_dict_props(dict = {}, props_names = []):
+	if (not dict.has_all(props_names)):
+		logf("!!!ERROR!!! %s doesnt contain all props names of %s" % [dict, props_names])
+	
 func format_date(datetime_dict):
 	return C.DATETIME_FORMAT % [
 		datetime_dict.year,

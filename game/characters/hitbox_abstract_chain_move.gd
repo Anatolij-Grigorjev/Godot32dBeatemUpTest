@@ -13,6 +13,7 @@ var before_hitbox_timer
 var during_hitbox_timer
 
 var hit_enemies = []
+var hits_layers = 0
 
 
 func init_move_vars():
@@ -81,7 +82,8 @@ func _process(delta):
 					hitbox_rect_size
 				)
 
-				if (actual_hit_rect.has_point(enemy.global_position)):
+				if (actual_hit_rect.has_point(enemy.global_position)
+					and enemy.get_collition_layer() & hits_layers):
 					hit_new_enemy(enemy)
 				
 	#do move input checks for future moves

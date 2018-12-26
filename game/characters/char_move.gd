@@ -131,10 +131,9 @@ func _physics_process(delta):
 	_on_fixed_process(delta)
 	
 #process the movement portion of being hit
-# velocity describes intensity and direction of hit
-# knockdown intensity describes ability of hit to make character fall
-func receive_hit_movement(hit_velocity = Vector2(), hit_knockdown_intensity = 0):
-	F.logf("%s stunned and hit for velocity %s", [self, hit_velocity])
-#	velocity = hit_velocity
-	start_stunned(1.0)
+# props.hit_knockdown_velocity describes intensity and direction of hit knowckdown
+# props.hit_stun_time describe time of stun 
+func receive_hit_movement(hit_props = {}):
+	F.logf("%s hit with props %s", [self, hit_props])
+	F.assert_dict_props(hit_props, ["hit_knockdown_velocity", "hit_stun_time"])
 	pass  
